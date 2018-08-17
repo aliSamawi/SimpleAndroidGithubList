@@ -1,9 +1,9 @@
 package com.github.githubtrend.injection.component
 
 import dagger.Component
-import com.github.githubtrend.view.main.MainActivity
 import com.github.githubtrend.injection.module.AppContextModule
 import com.github.githubtrend.injection.module.NetworkModule
+import com.github.githubtrend.view.main.MainActivity
 import javax.inject.Singleton
 
 /**
