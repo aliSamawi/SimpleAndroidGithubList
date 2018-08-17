@@ -23,6 +23,7 @@ class MainPresenter @Inject constructor( private var cloudRepository: CloudRepos
     }
 
     fun getAllTrendingRepos(){
+        view?.showLoading()
         cloudRepository.getTrendingRepo("2018-07-17") //todo set time
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -33,12 +34,18 @@ class MainPresenter @Inject constructor( private var cloudRepository: CloudRepos
                     }
 
                     override fun onSuccess(t: GitResponse) {
-                        Log.d("response","")
+                        view?.onGetGitsItems(t)
+                        view?.hideLoading()
                     }
 
                     override fun onError(e: Throwable) {
-                        e.printStackTrace()
+                        view?.onGetError(e)
+                        view?.hideLoading()
                     }
                 })
+    }
+
+    fun destroy(){
+        disposable?.dispose()
     }
 }
