@@ -8,6 +8,7 @@ def supportVersion = '27.1.1'
 def constraintVersion = '1.0.2'
 def retrofitVersion = '2.3.0'
 def rxJavaVersion = '2.1.7'
+def rxAndroidVersion = '2.0.1'
 def daggerVersion = '2.13'
 def GlideVersion = '4.7.1'
 def rxJavaAdapterVersion = '1.0.0'
@@ -22,7 +23,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        buildConfigField 'String', 'BASE_URL', '"https://98db502b-c1aa-48db-aef1-ae8066f28e95.mock.pstmn.io"'
+        buildConfigField 'String', 'BASE_URL', '"https://api.github.com"'
     }
     buildTypes {
         release {
@@ -50,6 +51,7 @@ dependencies {
 
     //RXJAVA
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
     implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rxJavaAdapterVersion"
 
     //OkHttp
