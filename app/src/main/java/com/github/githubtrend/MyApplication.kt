@@ -2,6 +2,7 @@ package com.github.githubtrend
 
 import android.app.Application
 import com.github.githubtrend.injection.component.AppComponent
+import com.github.githubtrend.injection.component.DaggerAppComponent
 import com.github.githubtrend.injection.module.AppContextModule
 
 /**
