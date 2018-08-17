@@ -2,6 +2,9 @@ package com.github.githubtrend.view.main
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.DefaultItemAnimator
+import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.View
 import com.github.githubtrend.R
 import com.github.githubtrend.data.response.GitResponse
@@ -13,13 +16,16 @@ class MainActivity : AppCompatActivity(),MainView {
 
     @Inject lateinit var presenter : MainPresenter
 
+    var adapter : GitItemsAdapter? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         getAppComponent().inject(this)
 
         presenter.bind(this)
-        presenter.getAllTrendingRepos()
+
+        setupViews()
     }
 
     override fun onDestroy() {
@@ -27,8 +33,25 @@ class MainActivity : AppCompatActivity(),MainView {
         super.onDestroy()
     }
 
+    fun setupViews(){
+        adapter = GitItemsAdapter(this@MainActivity, arrayListOf()
+                    , {
+                        it?.let {
+                            //todo
+                        }
+                })
+        with(recyclerView){
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            itemAnimator = DefaultItemAnimator()
+            adapter = this@MainActivity.adapter
+        }
+        presenter.getAllTrendingRepos()
+    }
+
     override fun onGetGitsItems(gitResponse: GitResponse) {
-        //todo
+        adapter?.items = gitResponse.items
+        adapter?.notifyDataSetChanged()
     }
 
     override fun onGetError(e: Throwable) {

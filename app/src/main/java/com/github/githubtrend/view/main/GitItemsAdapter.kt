@@ -1,6 +1,7 @@
 package com.github.githubtrend.view.main
 
 import android.content.Context
+import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +15,8 @@ import com.github.githubtrend.data.response.GitItem
 /**
  * Created by ali on 8/17/2018 AD.
  */
-class GitItemsAdapter ( var mContext : Context , var items : List<GitItem>) :
+class GitItemsAdapter ( var mContext : Context , var items : List<GitItem>
+            , var onItemClick: (item : GitItem?) -> Unit ) :
         RecyclerView.Adapter<GitItemsAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,18 +34,24 @@ class GitItemsAdapter ( var mContext : Context , var items : List<GitItem>) :
     override fun getItemCount(): Int = items.size
 
 
-    class ViewHolder(var view: View) : RecyclerView.ViewHolder(view){
+    inner class ViewHolder(var view: View) : RecyclerView.ViewHolder(view){
         var tvName : TextView
         var tvStar : TextView
         var imgIcon: ImageView
-
+        var holder : ConstraintLayout
+        var currentItem : GitItem? = null
         init {
             tvName = view.findViewById(R.id.tvName)
             tvStar = view.findViewById(R.id.tvStarN)
             imgIcon = view.findViewById(R.id.ivIcon)
+            holder = view.findViewById(R.id.holder)
+            holder.setOnClickListener {
+                onItemClick.invoke(currentItem)
+            }
         }
 
         fun bind( mContext: Context , item : GitItem){
+            currentItem = item
             tvName.text = item.name
             tvStar.text = item.stars_count.toString()
 
