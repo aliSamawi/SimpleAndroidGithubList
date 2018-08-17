@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity(),MainView {
     }
 
     fun setupViews(){
+        title = "Git Repositories"
         adapter = GitItemsAdapter(this@MainActivity, arrayListOf()
                     , {
                         it?.let {

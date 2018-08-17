@@ -15,7 +15,7 @@ class GitItemDetailActivity : AppCompatActivity(),GitItemDetailView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_git_item_detail)
         getAppComponent().inject(this)
 
         presenter.bind(this)
@@ -24,7 +24,7 @@ class GitItemDetailActivity : AppCompatActivity(),GitItemDetailView {
     }
 
     fun setupViews(){
-
+        title = "Git Repo's Detail"
         intent.getSerializableExtra(StaticFields.GIT_SELECTED_ITEM)?.let{
 
         }
