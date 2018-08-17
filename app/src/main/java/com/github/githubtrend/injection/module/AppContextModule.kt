@@ -1,4 +1,4 @@
-package github.com.githubtrend.injection.module
+package com.github.githubtrend.injection.module
 
 import android.content.Context
 import dagger.Module

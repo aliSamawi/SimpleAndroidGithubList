@@ -1,4 +1,4 @@
-package github.com.githubtrend
+package github.github.githubtrend
 
 import org.junit.Test
 

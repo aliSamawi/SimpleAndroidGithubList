@@ -17,7 +17,7 @@ def okHttpVersion = '3.8.0'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "github.com.githubtrend"
+        applicationId "com.github.githubtrend"
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1

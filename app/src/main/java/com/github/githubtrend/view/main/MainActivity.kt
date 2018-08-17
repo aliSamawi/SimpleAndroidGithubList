@@ -1,8 +1,8 @@
-package github.com.githubtrend.view.main
+package com.github.githubtrend.view.main
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import github.com.githubtrend.R
+import com.github.githubtrend.R
 
 class MainActivity : AppCompatActivity() {
 

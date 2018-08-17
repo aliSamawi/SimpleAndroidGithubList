@@ -1,8 +1,8 @@
-package github.com.githubtrend
+package com.github.githubtrend
 
 import android.app.Application
-import github.com.githubtrend.injection.component.AppComponent
-import github.com.githubtrend.injection.module.AppContextModule
+import com.github.githubtrend.injection.component.AppComponent
+import com.github.githubtrend.injection.module.AppContextModule
 
 /**
  * Created by ali on 8/17/2018 AD.
