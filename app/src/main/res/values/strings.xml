@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Github Trends</string>
     <string name="stars_dot">Stars :</string>
+    <string name="watchers_count">Watcher\'s Count :</string>
+    <string name="forks_numbers">Fork\'s Numbers  :</string>
+    <string name="open_issues_count">Open Issues\' Count :</string>
 </resources>

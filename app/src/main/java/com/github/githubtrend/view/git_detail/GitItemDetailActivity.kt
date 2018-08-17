@@ -38,9 +38,9 @@ class GitItemDetailActivity : AppCompatActivity(),GitItemDetailView {
             tvStarN.text         = item.stars_count.toString()
             tvName.text          = item.fullName
             tvDescription.text   = item.description
-            tvWatcher.text       = "Watcher's Count : " + item.watchers_count.toString()
-            tvForks.text         = "Fork's Numbers  : " + item.forks_count.toString()
-            tvIssues.text        = "Open Issues' Count : " + item.open_issues_count.toString()
+            tvWatcher.text       = getString(R.string.watchers_count) + item.watchers_count.toString()
+            tvForks.text         = getString(R.string.forks_numbers) + item.forks_count.toString()
+            tvIssues.text        = getString(R.string.open_issues_count) + item.open_issues_count.toString()
             tvUrl.text           = item.htmlUrl
         }
     }
