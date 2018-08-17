@@ -1,6 +1,7 @@
 package com.github.githubtrend.data.response
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 /**
  * Created by ali on 8/17/2018 AD.
@@ -15,4 +16,4 @@ data class GitItem( @SerializedName("id") var id : Int ,
                     @SerializedName("forks_count") var forks_count : Int ,
                     @SerializedName("stargazers_count") var stars_count : Int ,
                     @SerializedName("owner") var owner : OwnerGitItem
-)
+) : Serializable
