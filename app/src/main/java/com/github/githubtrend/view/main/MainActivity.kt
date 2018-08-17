@@ -1,5 +1,6 @@
 package com.github.githubtrend.view.main
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -8,7 +9,9 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.github.githubtrend.R
 import com.github.githubtrend.data.response.GitResponse
+import com.github.githubtrend.util.StaticFields
 import com.github.githubtrend.util.getAppComponent
+import com.github.githubtrend.view.git_detail.GitItemDetailActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -34,10 +37,13 @@ class MainActivity : AppCompatActivity(),MainView {
     }
 
     fun setupViews(){
+        title = "Git Repositories"
         adapter = GitItemsAdapter(this@MainActivity, arrayListOf()
                     , {
                         it?.let {
-                            //todo
+                            val intent = Intent( this@MainActivity , GitItemDetailActivity::class.java )
+                            intent.putExtra( StaticFields.GIT_SELECTED_ITEM , it)
+                            startActivity(intent)
                         }
                 })
         with(recyclerView){
