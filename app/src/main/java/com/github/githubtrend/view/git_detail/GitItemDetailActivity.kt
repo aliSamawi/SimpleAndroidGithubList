@@ -3,6 +3,7 @@ package com.github.githubtrend.view.git_detail
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.github.githubtrend.R
+import com.github.githubtrend.util.StaticFields
 import com.github.githubtrend.util.getAppComponent
 import javax.inject.Inject
 
@@ -24,5 +25,13 @@ class GitItemDetailActivity : AppCompatActivity(),GitItemDetailView {
 
     fun setupViews(){
 
+        intent.getSerializableExtra(StaticFields.GIT_SELECTED_ITEM)?.let{
+
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.destory()
     }
 }
