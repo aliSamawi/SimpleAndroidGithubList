@@ -9,10 +9,11 @@ import java.io.Serializable
 data class GitItem( @SerializedName("id") var id : Int ,
                     @SerializedName("name") var name : String ,
                     @SerializedName("full_name") var fullName : String ,
+                    @SerializedName("description") var description : String ,
                     @SerializedName("html_url") var htmlUrl : String ,
                     @SerializedName("created_at") var created_at : String ,
-                    @SerializedName("watchers_count") var watchers_count : String ,
-                    @SerializedName("open_issues_count") var open_issues_count : String ,
+                    @SerializedName("watchers_count") var watchers_count : Int ,
+                    @SerializedName("open_issues_count") var open_issues_count : Int ,
                     @SerializedName("forks_count") var forks_count : Int ,
                     @SerializedName("stargazers_count") var stars_count : Int ,
                     @SerializedName("owner") var owner : OwnerGitItem

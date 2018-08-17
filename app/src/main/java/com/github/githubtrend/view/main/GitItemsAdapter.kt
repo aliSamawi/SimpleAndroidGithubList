@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.github.githubtrend.R
 import com.github.githubtrend.data.response.GitItem
 
@@ -58,6 +59,7 @@ class GitItemsAdapter ( var mContext : Context , var items : List<GitItem>
             item.owner.avatar_url?.let {
                 Glide.with(mContext)
                         .load(it)
+                        .apply(RequestOptions().placeholder(R.drawable.github_mark).error(R.drawable.github_mark))
                         .into(imgIcon)
             }
 
