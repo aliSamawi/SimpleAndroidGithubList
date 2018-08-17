@@ -16,5 +16,6 @@ class MainActivity : AppCompatActivity(),MainView {
         getAppComponent().inject(this)
 
         presenter.bind(this)
+        presenter.getAllTrendingRepos()
     }
 }
