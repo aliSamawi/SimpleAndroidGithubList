@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="NormalText16" parent="AppTheme" >
+        <item name="android:textSize" >16sp</item>
+        <item name="android:textColor">@color/black_text</item>
+    </style>
 </resources>

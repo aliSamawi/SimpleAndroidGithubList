@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GithubTrend</string>
+    <string name="stars_dot">Stars :</string>
 </resources>
