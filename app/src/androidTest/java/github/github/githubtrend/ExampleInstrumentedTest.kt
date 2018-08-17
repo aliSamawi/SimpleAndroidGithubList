@@ -1,4 +1,4 @@
-package github.com.githubtrend
+package github.github.githubtrend
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

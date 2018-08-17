@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 
@@ -12,11 +11,12 @@ def rxJavaVersion = '2.1.7'
 def daggerVersion = '2.13'
 def GlideVersion = '4.7.1'
 def rxJavaAdapterVersion = '1.0.0'
+def okHttpVersion = '3.8.0'
 
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "github.com.githubtrend"
+        applicationId "com.github.githubtrend"
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
@@ -51,6 +51,9 @@ dependencies {
     //RXJAVA
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
     implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rxJavaAdapterVersion"
+
+    //OkHttp
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
 
     //DAGGER
     implementation "com.google.dagger:dagger:$daggerVersion"
