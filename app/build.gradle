@@ -12,6 +12,7 @@ def rxJavaVersion = '2.1.7'
 def daggerVersion = '2.13'
 def GlideVersion = '4.7.1'
 def rxJavaAdapterVersion = '1.0.0'
+def okHttpVersion = '3.8.0'
 
 android {
     compileSdkVersion 27
@@ -51,6 +52,9 @@ dependencies {
     //RXJAVA
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
     implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rxJavaAdapterVersion"
+
+    //OkHttp
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
 
     //DAGGER
     implementation "com.google.dagger:dagger:$daggerVersion"

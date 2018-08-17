@@ -1,4 +1,4 @@
-package ir.r3za13.kotlin_rz_boilerplate.injection.module
+package github.com.githubtrend.injection.module
 
 import android.content.Context
 import dagger.Module
@@ -7,8 +7,9 @@ import dagger.Provides
 /**
  * module to represent context for all needed provides
  *
- * @author Reza Abedini
+ * Created by ali on 8/17/2018 AD.
  */
+
 @Module
 class AppContextModule(val context: Context) {
 
