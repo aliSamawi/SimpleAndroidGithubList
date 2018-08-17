@@ -2,9 +2,9 @@ package com.github.githubtrend.view.main
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.View
 import com.github.githubtrend.R
 import com.github.githubtrend.data.response.GitResponse
@@ -55,7 +55,8 @@ class MainActivity : AppCompatActivity(),MainView {
     }
 
     override fun onGetError(e: Throwable) {
-        //todo
+        Snackbar.make( holder ,"there is something wrong on getting data" , Snackbar.LENGTH_SHORT)
+                .show()
     }
 
     override fun showLoading() {
