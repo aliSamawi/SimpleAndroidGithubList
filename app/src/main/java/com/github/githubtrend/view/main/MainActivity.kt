@@ -1,7 +1,6 @@
 package com.github.githubtrend.view.main
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.DefaultItemAnimator
@@ -10,12 +9,17 @@ import android.view.View
 import com.github.githubtrend.R
 import com.github.githubtrend.data.response.GitResponse
 import com.github.githubtrend.util.StaticFields
-import com.github.githubtrend.util.getAppComponent
+import com.github.githubtrend.view.base.BaseActivity
+import com.github.githubtrend.view.base.BasePresenter
 import com.github.githubtrend.view.git_detail.GitItemDetailActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(),MainView {
+class MainActivity : BaseActivity(),MainView {
+
+    override fun getLayoutResId(): Int = R.layout.activity_main
+
+    override fun getPresenter(): BasePresenter<*>? = presenter
 
     @Inject lateinit var presenter : MainPresenter
 
@@ -23,10 +27,8 @@ class MainActivity : AppCompatActivity(),MainView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        getAppComponent().inject(this)
 
-        presenter.bind(this)
+        getAppComponent().activityComponent().inject(this)
 
         setupViews()
     }

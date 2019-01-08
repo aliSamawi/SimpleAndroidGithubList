@@ -1,28 +1,30 @@
 package com.github.githubtrend.view.git_detail
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.github.githubtrend.R
 import com.github.githubtrend.data.response.GitItem
 import com.github.githubtrend.util.StaticFields
-import com.github.githubtrend.util.getAppComponent
+import com.github.githubtrend.view.base.BaseActivity
+import com.github.githubtrend.view.base.BasePresenter
 import kotlinx.android.synthetic.main.activity_git_item_detail.*
 import javax.inject.Inject
 
 /**
  * Created by ali on 8/17/2018 AD.
  */
-class GitItemDetailActivity : AppCompatActivity(),GitItemDetailView {
+class GitItemDetailActivity : BaseActivity(),GitItemDetailView {
+    override fun getLayoutResId(): Int = R.layout.activity_git_item_detail
+
+    override fun getPresenter(): BasePresenter<*>? = presenter
+
     @Inject lateinit var presenter : GitItemDetailPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_git_item_detail)
-        getAppComponent().inject(this)
 
-        presenter.bind(this)
+        getAppComponent().activityComponent().inject(this)
 
         setupViews()
     }
@@ -43,10 +45,5 @@ class GitItemDetailActivity : AppCompatActivity(),GitItemDetailView {
             tvIssues.text        = getString(R.string.open_issues_count) + item.open_issues_count.toString()
             tvUrl.text           = item.htmlUrl
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        presenter.destory()
     }
 }

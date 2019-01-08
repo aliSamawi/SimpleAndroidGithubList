@@ -1,8 +1,8 @@
 package com.github.githubtrend.view.main
 
-import android.util.Log
 import com.github.githubtrend.data.repository.CloudRepository
 import com.github.githubtrend.data.response.GitResponse
+import com.github.githubtrend.view.base.BasePresenter
 import io.reactivex.SingleObserver
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -13,14 +13,10 @@ import javax.inject.Inject
  * Created by ali on 8/17/2018 AD.
  */
 
-class MainPresenter @Inject constructor( private var cloudRepository: CloudRepository ) {
+class MainPresenter @Inject constructor( private var cloudRepository: CloudRepository )
+    : BasePresenter<MainView>(){
 
-    var view : MainView? = null
     private var disposable : Disposable? = null
-
-    fun bind(view : MainView){
-        this.view = view
-    }
 
     fun getAllTrendingRepos(){
         view?.showLoading()
@@ -45,7 +41,4 @@ class MainPresenter @Inject constructor( private var cloudRepository: CloudRepos
                 })
     }
 
-    fun destroy(){
-        disposable?.dispose()
-    }
 }
