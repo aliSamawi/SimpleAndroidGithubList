@@ -25,6 +25,7 @@ class GitItemDetailActivity : BaseActivity(),GitItemDetailView {
         super.onCreate(savedInstanceState)
 
         getAppComponent().activityComponent().inject(this)
+        presenter.bind(this , getAppComponent())
 
         setupViews()
     }

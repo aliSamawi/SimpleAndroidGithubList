@@ -29,13 +29,9 @@ class MainActivity : BaseActivity(),MainView {
         super.onCreate(savedInstanceState)
 
         getAppComponent().activityComponent().inject(this)
+        presenter.bind(this , getAppComponent())
 
         setupViews()
-    }
-
-    override fun onDestroy() {
-        presenter.destroy()
-        super.onDestroy()
     }
 
     fun setupViews(){
@@ -62,8 +58,8 @@ class MainActivity : BaseActivity(),MainView {
         adapter?.notifyDataSetChanged()
     }
 
-    override fun onGetError(e: Throwable) {
-        Snackbar.make( holder ,"there is something wrong on getting data" , Snackbar.LENGTH_SHORT)
+    override fun onGetError(errorMessage : String) {
+        Snackbar.make( holder , errorMessage , Snackbar.LENGTH_SHORT)
                 .show()
     }
 

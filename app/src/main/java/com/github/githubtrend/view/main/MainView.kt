@@ -8,7 +8,7 @@ import com.github.githubtrend.view.base.MvpView
  */
 interface MainView : MvpView {
     fun onGetGitsItems(gitResponse: GitResponse)
-    fun onGetError(e:Throwable)
+    fun onGetError(errorMessage : String)
     fun showLoading()
     fun hideLoading()
 }
