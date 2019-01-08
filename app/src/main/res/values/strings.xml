@@ -4,4 +4,8 @@
     <string name="watchers_count">Watcher\'s Count :</string>
     <string name="forks_numbers">Fork\'s Numbers  :</string>
     <string name="open_issues_count">Open Issues\' Count :</string>
+    <string name="please_wait">Please wait</string>
+    <string name="connecting">Connecting</string>
+    <string name="retry">Retry</string>
+    <string name="OK">OK</string>
 </resources>

@@ -14,6 +14,7 @@ def GlideVersion = '4.7.1'
 def rxJavaAdapterVersion = '1.0.0'
 def okHttpVersion = '3.8.0'
 def circleImageVersion = '2.2.0'
+def materialDialogVersion = '0.9.6.0'
 
 android {
     compileSdkVersion 27
@@ -68,6 +69,10 @@ dependencies {
 
     //CircleImageView
     implementation "de.hdodenhof:circleimageview:$circleImageVersion"
+
+    implementation("com.afollestad.material-dialogs:commons:$materialDialogVersion") {
+        exclude group: 'com.android.support'
+    }
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

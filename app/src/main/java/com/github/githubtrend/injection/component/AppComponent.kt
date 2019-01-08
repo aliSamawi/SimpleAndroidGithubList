@@ -13,6 +13,6 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = arrayOf((NetworkModule::class), (AppContextModule::class)))
 interface AppComponent {
-    fun inject(activity: MainActivity)
-    fun inject(activity: GitItemDetailActivity)
+    fun activityComponent(): ActivityComponent
+    fun presenterComponent():PresenterComponent
 }
